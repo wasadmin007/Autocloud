@@ -1,25 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-ul {
- 	list-style-type: none;
-    margin: 20;
-    padding: 20;
-    overflow: auto;
-    background-color: Metalic;
-}
-li {
-    list-style-type: none;
-	width: 5em;	
-	padding: 20;
-}
-</style>
+<link rel="stylesheet" type="text/css" href={% static 'index.css' %}>
+</head>
 <body >
-<form action="/Jboss" method="post">
+<ul><li>
+<form  action="/Jboss" method="post">
    {% csrf_token %}
     {{forms}}
-    <input type="submit" value="Submit" />
+    <input class="jboss" type="submit" value="Submit" />
 </form>
+</li>
+</ul>
 </body>
 </html>

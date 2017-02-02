@@ -1,0 +1,127 @@
+<style>
+ ul {
+ 	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    float: none;
+    background-color: Metalic;
+}
+.myDropdown ul {
+	list-style-type: none;
+    position: relative;
+    background-color: grey;
+    overflow: none;
+}
+
+li {
+    list-style-type: none;
+	width: 5em;
+	float: left;
+	margin-right: 1em;
+}
+
+li a {
+    list-style-type: none;
+	width:5em;
+	float: none;
+	margin-right: 0em;
+}
+ul .jboss {
+ 	list-style-type: none;
+    margin: 20;
+    padding: 20;
+    overflow: auto;
+    background-color: Metalic;
+}
+li .jboss {
+    list-style-type: none;
+	width: 5em;	
+	padding: 20;
+}
+
+li a, .Provisions {
+    display: inline-block;
+    background-color: metalic;
+    color: black;
+    text-align: center;
+    padding: 0px 8px 16px 0px rgba(0,0,0,0.2) ;
+    text-decoration: none;
+}
+
+.dropbtn {
+    background-color: black;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+.Provisions {
+    background-color: metalic;
+    color: black;
+    padding: 0px 8px 16px 0px rgba(0,0,0,0.2) ;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.Logs {
+    background-color: Metalic;
+    color: black;
+    padding: 0px 8px 16px 0px rgba(0,0,0,0.2) ;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-block;
+}
+.Settings {
+    background-color: Metalic;
+    color: black;
+    padding: 0px 8px 16px 0px rgba(0,0,0,0.2) ;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-block;
+}
+.Help {
+    background-color: Metalic;
+    color: black;
+    padding: 0px 8px 16px 0px rgba(0,0,0,0.2) ;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-block;
+}
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown {
+    position: abosolute;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    float: drop;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.show {display:block;}
+</style>

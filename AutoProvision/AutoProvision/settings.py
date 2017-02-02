@@ -117,4 +117,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/Users/praveenjeendru/Documents/Suswari-Practice/sus-ruby/cloudAuto/AutoProvision/AutoProvision/views/styles/'
+STATIC_ROOT = '/Users/praveenjeendru/Documents/Suswari-Practice/sus-ruby/cloudAuto/AutoProvision/AutoProvision/views/static/'
+STATICFILES_DIRS = (
+   os.path.join(os.path.dirname(__file__), 'views/styles').replace('\\','/'),
+)
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
