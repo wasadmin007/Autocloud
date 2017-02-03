@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.template.defaulttags import register
-from .jbossorder import NameForm
+from .forms.jbossorder import jbossForm
 from django.http.response import HttpResponse
 from ..model.data import data
 

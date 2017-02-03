@@ -21,7 +21,12 @@ from views import server
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', view.tempalte, name='index'),
-    url(r'^Jboss', server.get_name, name='get_name'), 
+    url(r'^Jboss', server.jboss, name='jboss'), 
+    url(r'^Tomcat', server.tomcat, name='Tomcat'),
+    url(r'^Apache', server.apache, name='Apache'),
+    url(r'^WAS', server.WAS, name='WAS'),
+    url(r'^IHS', server.IHS, name='IHS'),
+    url(r'^WebLogic', server.weblogic, name='Weblogic'),
     url(r'^vieworder', view.orderview, name='orderview'),
   
 ]
