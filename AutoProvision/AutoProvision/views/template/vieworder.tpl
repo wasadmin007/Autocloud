@@ -6,6 +6,6 @@
 
 	{% block vieworder %}
 		{%for server in Tabs.Provisions.AppServers%}
-			<a href={{ server }}  class='Provision' >{{ server }}</a>
-			{%endfor%}
+		<li><a href={{ server }}  class="Provision" target="vieworder"> {{ server }} </a></li>
+		{%endfor%}
 	{% endblock vieworder %}

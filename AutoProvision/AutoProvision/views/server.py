@@ -4,7 +4,7 @@ from django.template.defaulttags import register
 from .jbossorder import NameForm
 from django.http.response import HttpResponse
 from django.views.decorators.http import require_POST
-from ..model.data import data
+
 
 def get_name(request):
     # if this is a POST request we need to process the form data
@@ -24,10 +24,10 @@ def get_name(request):
                   return HttpResponse('Application Name Should be String    '+ request.POST.get("appname"))
           
             
-            Values_post = ''+request.POST.get("envname")+' '+request.POST.get("appname")
+            Values_post = 'Environment '+request.POST.get("envname")+' Apllication '+request.POST.get("appname")
             return HttpResponse('Thank you For Choosing Auto Cloud Following Values Are Passed to Provision Jboss '+Values_post)
-        else:
-            return HttpResponse('Form is Invalid    ' , form  )
+        else:   
+            return HttpResponse('Form is Invalid    ' )
 
     # if a GET (or any other method) we'll create a blank form
     else:

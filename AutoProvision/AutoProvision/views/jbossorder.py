@@ -3,6 +3,7 @@ import view
 from ..model.data import data
 
 class NameForm(forms.Form):
+    test=data().CPUTypes()
     envname = forms.CharField(label='Env Name',max_length=20) 
     appname = forms.CharField(label='Application Name', max_length=20)
     OSFlavor = forms.CharField(label='OSFlavor', widget=forms.Select(choices=data().OSnames())) 

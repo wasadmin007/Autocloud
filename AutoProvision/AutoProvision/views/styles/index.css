@@ -6,20 +6,19 @@ body {
 iframe, .vieworder  { 
 	border:1px solid grey;
     display: Metalic; 
-    font-family: myFirstFont;
-    background-position: center;
     width: 800px;
     height: 500px;
-    position: relative;
+   	position : relative;
     overflow: auto;
+    margin-top:0px;
+    margin-right:"-200px"
 }
 iframe, div .vieworder {
 	list-style-type: none;
     margin: 20;
     padding: 20;
-    background-color: Metalic;
-    background-size: 80px 60px;
-  
+    background-color: Metalic;   
+    position : relative;
 }
  ul {
  	list-style-type: none;
@@ -43,11 +42,14 @@ li {
 	margin-right: 1em;
 }
 
-li a {
+li a, .myDropdown {
     list-style-type: none;
-	width:5em;
+	width:8em;
 	float: none;
 	margin-right: 0em;
+    border: none;	
+    display: inline-block;
+    font-size: 14px;
 }
 ul .jboss {
  	list-style-type: none;

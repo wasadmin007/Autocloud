@@ -18,7 +18,8 @@
 					<div id="myDropdown" class="dropdown-content">	 
 					{% block myDropdown %}
 					{%for server in Tabs.Provisions.AppServers%}
-					<a href={{ server }}  class='Provisions' >{{ server }}</a>
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+					<a href={{server}}   class={{server}} target="vieworder">{{server}}</a>
 					{%endfor%}
 					{% endblock myDropdown %}
 					</div>
@@ -30,18 +31,16 @@
 		{%endfor%}	
 {% endblock tab %}
 </ul>
-
 	<div	class = "vieworder">
-		<iframe name="vieworder" class="vieworder" src="vieworder" />  </iframe>
+		<iframe name="vieworder" id="vieworder" class="vieworder" src="vieworder" />  </iframe>
 	</div>
-
-
 </body>
 
 
-<script>
+<script >
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
+
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -59,6 +58,7 @@ window.onclick = function(event) {
       }
     }
   }
+
   if (!event.target.matches('.Logs')) 
 {
 	  }
@@ -66,7 +66,9 @@ window.onclick = function(event) {
 	  
 	  
   }
+
 }
+
 </script>
 
 
