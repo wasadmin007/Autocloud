@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', view.tempalte, name='index'),
     url(r'^Jboss', server.get_name, name='get_name'), 
+    url(r'^vieworder', view.orderview, name='orderview'),
   
 ]

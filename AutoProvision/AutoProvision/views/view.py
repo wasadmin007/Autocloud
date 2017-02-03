@@ -19,3 +19,8 @@ def tempalte(request):
 #
 
 
+def orderview(request):
+    fileTemp = 'vieworder.tpl'
+    return render(request,fileTemp, {'formset': 'Praveen Testting' , 'Tabs': data().data_static() ,'title':title()})
+#
+
