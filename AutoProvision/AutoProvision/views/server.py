@@ -9,6 +9,12 @@ from django.http.response import HttpResponse
 from django.views.decorators.http import require_POST
 from forms.weblogicorder import weblogicForm
 from forms.ihsorder import ihsForm
+from Carbon.QuickTime import palindromeLoopTimeBase
+from boto.ec2.autoscale.request import Request
+
+
+palindromeLoopTimeBase
+
 
 
 def jboss(request):
@@ -27,9 +33,12 @@ def jboss(request):
                 
             if not request.POST.get("appname"):
                   return HttpResponse('Application Name Should be String    '+ request.POST.get("appname"))
-          
-            
-            Values_post = 'Environment '+request.POST.get("envname")+' Apllication '+request.POST.get("appname")
+            if not request.POST.get("appname"):
+                  return HttpResponse('Application Name Should be String    '+ request.POST.get("AWSRegions"))
+        
+           
+
+            Values_post = 'Environment '+request.POST.get("envname")+' Apllication '+request.POST.get("appname")+'AWSRegions'+request.POST.get("AWSRegions")
             return HttpResponse('Thank you For Choosing Auto Cloud Following Values Are Passed to Provision Jboss '+Values_post)
         else:   
             return HttpResponse('Form is Invalid    ' )
@@ -37,6 +46,7 @@ def jboss(request):
     # if a GET (or any other method) we'll create a blank form
     else:
         forms = jbossForm()
+        
         return render(request, 'jboss.html', {'forms': forms})
 
 def tomcat(request):

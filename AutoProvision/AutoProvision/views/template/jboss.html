@@ -4,7 +4,16 @@
 <ul><li>
 <form  action="/Jboss" method="post">
    {% csrf_token %}
-    {{forms}}
+    
+    {{ forms.management_form }}
+    
+    {% for field in forms %}
+    
+       {{ field.name }}  {{field}}
+   
+    {% endfor %}
+   
+    
     <input class="jboss" type="submit" value="Submit" />
 </form>
 </li>
