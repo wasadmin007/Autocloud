@@ -6,6 +6,8 @@ class jbossForm(forms.Form):
         appname = forms.CharField(label='Application Name', max_length=20)
         Cloud   = forms.CharField(label='ClodProvider', widget=forms.Select(choices=data().cloud_choices()))
         AWSRegions   = forms.CharField(label='AWSRegions', widget=forms.Select(choices=data().get_avalable_regions_choices()), initial='us-east-1')
+        AWSZones   = forms.CharField(label='AWSZones', widget=forms.Select(choices=data().get_avalable_zones()), initial='us-east-1')
+        
         OSFlavor = forms.CharField(label='OSFlavor', widget=forms.Select(choices=data().OSnames())) 
         OSversion = forms.FloatField(label='OSversion', widget=forms.Select(choices=data().LinuxOSverchoices()))
         TotalCPUS = forms.IntegerField(label='TotalCPUS', widget=forms.Select(choices=data().TotalCPUS()))
