@@ -2,10 +2,40 @@
 <link rel="stylesheet" type="text/css" href={% static 'index.css' %}>
 
 <ul><li>
-<form  action="/Jboss" method="post">
+
+<form action="Jboss" method="post" id="JbossForm" zonesurl="{% url 'awszones' %}" novalidate>
    {% csrf_token %}
-    {{forms}}
+   {{ forms.as_table }}
     <input class="jboss" type="submit" value="Submit" />
 </form>
 </li>
 </ul>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $("#id_AWSRegions").change(function () {
+      var url = $("#JbossForm").attr("zonesurl");  // get the url of the `load_cities` view
+      var regionId = $(this).val();  // get the selected country ID from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: url,
+        data: {'region': regionId},
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+	var data1 = data.replace(/<li>/g,"").replace(/<\/li>/g,",").split(",");
+          console.log(typeof(data1))
+          console.log(data1)
+          $("#id_AWSZones").empty();
+	  $.each(data1, function (index) {
+	     console.log(data1[index])	
+             $("#id_AWSZones").append($('<option></option>').val(index).html(data1[index]))
+          });
+     console.log(data)
+
+
+	},
+	error: function(jqxhr, status, exception) {
+             alert('Exception:', exception );
+         }
+      });
+
+    });
+  </script>

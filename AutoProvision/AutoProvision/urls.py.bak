@@ -17,18 +17,18 @@ from django.conf.urls import url
 from django.contrib import admin
 from .views import view
 from .views import server
-from django.urls import path
+#from django.urls import path
 
 urlpatterns = [
-    path(r'admin/', admin.site.urls),
-    path('', view.tempalte, name='index'),
-    path('Jboss', server.jboss, name='jboss'), 
-    path(r'Tomcat', server.tomcat, name='Tomcat'),
-    path(r'Apache', server.apache, name='Apache'),
-    path(r'WAS', server.WAS, name='WAS'),
-    path(r'IHS', server.IHS, name='IHS'),
-    path(r'WebLogic', server.weblogic, name='Weblogic'),
-    path(r'vieworder', view.orderview, name='orderview'),
-    path('zones/', view.awszones, name='awszones'),
-    #path('zones/<region>', view.awszones, name='awszones')
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', view.tempalte, name='index'),
+    url(r'^Jboss', server.jboss, name='jboss'), 
+    url(r'^Tomcat', server.tomcat, name='Tomcat'),
+    url(r'^Apache', server.apache, name='Apache'),
+    url(r'^WAS', server.WAS, name='WAS'),
+    url(r'^IHS', server.IHS, name='IHS'),
+    url(r'^WebLogic', server.weblogic, name='Weblogic'),
+    url(r'^vieworder', view.orderview, name='orderview'),
+    url(r'^zones', view.awszones,name='awszones'),
+    url(r'^zones/<region>/', view.awszones,name='awszones1')
 ]

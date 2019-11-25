@@ -3,10 +3,13 @@
 
 <ul><li>
 
-<form action="was" method="post" id="JbossForm" zonesurl="{% url 'awszones' %}" novalidate>
+<form action="Jboss" method="post" id="JbossForm" zonesurl="{% url 'awszones' %}" novalidate>
    {% csrf_token %}
    {{ forms.as_table }}
-    <input class="was" type="submit" value="Submit" />
+    <select id="test12" name='test12'>
+	<option value="">Make a selection</option>
+    </select> 
+    <input class="jboss" type="submit" value="Submit" />
 </form>
 </li>
 </ul>
@@ -20,17 +23,14 @@
         url: url,
         data: {'region': regionId},
         success: function (data) {   // `data` is the return of the `load_cities` view function
-	var data1 = data.replace(/<li>/g,"").replace(/<\/li>/g,",").split(",");
+          var data1 = data.replace(/<li>/g,"").replace(/<\/li>/g,",").split(",");
           console.log(typeof(data1))
-          console.log(data1)
-          $("#id_AWSZones").empty();
-	  $.each(data1, function (index) {
-	     console.log(data1[index])	
-             $("#id_AWSZones").append($('<option></option>').val(index).html(data1[index]))
-          });
+          console.log(data1) 
+          $.each(data1, function () {
+             
+             $("#test12").append($('<option></option>').val("suswari").html("sus"))
+          });	  
      console.log(data)
-
-
 	},
 	error: function(jqxhr, status, exception) {
              alert('Exception:', exception );

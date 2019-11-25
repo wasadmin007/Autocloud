@@ -1,26 +1,24 @@
-
 import os
 import django
 from django.forms.models import model_to_dict
-from ..AWSBOTO.awsec2 import awsec2
-from ..AWSBOTO import connection as conn
-import boto.ec2
-awsec = awsec2()
-class data():  
+import boto3
+#import  connection as conn
+
+class data():
     def data_static(self):
-        Tabs = { 'Provisions': { 'AppServers' : ['Jboss', 'Tomcat', 'WAS', 'WebLogic', 'IHS', 'Apache'],
+       Tabs = { 'Provisions': { 'AppServers' : ['Jboss', 'Tomcat', 'WAS', 'WebLogic', 'IHS', 'Apache'],
                                  'Cloud_provders': ['AWS']  },
                 'Logs':{},
                 'Help':{},
                 'Settings':{'users': 'praveen' }
             }
-        return Tabs         
+       return Tabs
     def server_choices(self):
         listServer = self.data_static()
         cho = []
         for key, options in listServer.items():
            for key1, option in options.items():
-             if key1 == 'AppServers':
+            if key1 == 'AppServers':
                for choice in option:
                   cho.append((choice,choice),)
         return cho
@@ -34,20 +32,45 @@ class data():
                   cho.append((choice,choice),)
         return cho
     def get_all_regions(self):
-        regions = boto.ec2.get_regions('ec2', region_cls=None, connection_cls=None)
+        ec2 = boto3.client('ec2')
+        regions = ec2.describe_regions()
         return regions
-    def get_avalable_zones(self):
+    def get_avalable_zones_ax(self,region):
+        ec2 = boto3.client('ec2',region)
+        azs = ec2.describe_availability_zones( Filters=[
+        {
+            'Name': 'region-name',
+            'Values': [
+                region,
+            ]
+        },
+    ])
         cho = []
-        for key  in awsec.get_all_zones():
-            cho.append((key.name,key.name),)
+        for key  in azs['AvailabilityZones']:
+          cho.append(key['ZoneName'])
+        return cho
+
+    def get_avalable_zones(self,region):
+        ec2 = boto3.client('ec2',region)
+        azs = ec2.describe_availability_zones( Filters=[
+        {
+            'Name': 'region-name',
+            'Values': [
+                region,
+            ]
+        },
+    ])
+        cho = []
+        for key  in azs['AvailabilityZones']:
+          cho.append((key['ZoneName'],key['ZoneName']),)
         return cho
     def get_avalable_regions_choices(self):
         cho = []
         regions = self.get_all_regions()
-        for key  in regions:
-            cho.append((key.name,key.name),)
+        for key in regions['Regions']:
+           cho.append((key['RegionName'],key['RegionName']),)
         return cho
-           
+
     def LinuxOSverchoices(self):
        cho = []
        list = ['5','6','6.5','6.6','6.7','6.8','7']
@@ -58,12 +81,12 @@ class data():
        cho = []
        for i in range(1,40):
            cho.append((i,i),)
-       return cho    
+       return cho
     def CPUTypes(self):
        cho = []
        osList = ['64','32']
        for i in osList:
-           cho.append((i,i),)
+         cho.append((i,i),)
        return cho   
     
     def OSnames(self):
@@ -72,9 +95,4 @@ class data():
        for i in osList:
            cho.append((i,i),)
        return cho    
-            
-        
-        
-        
-    #
-    
+
